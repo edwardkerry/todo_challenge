@@ -1,0 +1,29 @@
+{
+  "name": "ToDo",
+  "homepage": "https://github.com/edwardkerry/todo_challenge",
+  "authors": [
+    "edwardkerry <edwardkerry@gmail.com>"
+  ],
+  "description": "Makers Challenge Week08",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "todo",
+    "list",
+    "pirates"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.4.9",
+    "angular-resource": "^1.4.9"
+  }
+}
