@@ -22,6 +22,10 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
+    "grunt-express-server": "^0.5.1",
+    "grunt-karma": "^0.12.1",
+    "grunt-protractor-runner": "^3.0.0",
+    "grunt-protractor-webdriver": "^0.2.5",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
@@ -33,6 +37,8 @@
     "protractor": "^3.0.0"
   },
   "dependencies": {
-    "http-server": "^0.8.5"
+    "express": "^4.13.4",
+    "http-server": "^0.8.5",
+    "selenium-standalone": "^4.8.0"
   }
 }
