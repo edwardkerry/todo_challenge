@@ -11,14 +11,14 @@ module.exports = function(grunt) {
    },
    karma: {
      options: {
-       configFile: 'app/test/karma.conf.js'
+       configFile: 'test/karma.conf.js'
      },
      run: {
      }
    },
    protractor: {
      options: {
-       configFile: 'app/test/e2e/conf.js'
+       configFile: 'test/e2e/conf.js'
      },
      run: {
      }
