@@ -7,12 +7,17 @@ toDoList.controller('ToDoListController', ['filterFilter', function(filterFilter
   var newName;
 
   self.createTask = function(){
-    self.tasks.push({id:self.tasks.length, name:self.newTask, complete: false});
+    self.tasks.push({name:self.newTask, complete: false});
   };
 
   self.editTask = function(taskToEdit, newName){
-    task = self.tasks[taskToEdit.id];
-    task.name = newName;
+    for(var i = 0; i < self.tasks.length; i++) {
+       if (self.tasks[i].name === taskToEdit.name) {
+         self.tasks[i].name = newName;
+       }
+     }
   };
+
+  
 
 }]);

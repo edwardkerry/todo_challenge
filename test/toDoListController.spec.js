@@ -23,7 +23,7 @@ describe('ToDoListController', function(){
     it('pushes new task into the tasks array', function(){
       ctrl.newTask = "Scrub the deck";
       ctrl.createTask();
-      expect(ctrl.tasks[0]).toEqual({id:0, name:"Scrub the deck", complete:false});
+      expect(ctrl.tasks[0]).toEqual({name:"Scrub the deck", complete:false});
     });
   });
 
@@ -36,7 +36,7 @@ describe('ToDoListController', function(){
 
     describe('editing a task', function(){
       it('updates the task in the tasks array', function(){
-        updated = {id: 0, name: "Splice the mainbrace", complete: false}
+        updated = {name: "Splice the mainbrace", complete: false}
         ctrl.editTask(task1, 'Splice the mainbrace');
         expect(ctrl.tasks[0]).toEqual(updated);
       });
