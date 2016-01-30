@@ -8,25 +8,30 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/toDoListController.js"></script>
   </head>
-  <body>
+  <body ng-controller="ToDoListController as taskCtrl">
     <h1>To do</h1>
       <form class="form-horizontal">
-        <input type="text" placeholder="What be your task?">
-        <button class="btn" type="submit">Chalk it up</button>
+        <input type="text" ng-model="taskCtrl.newTask" placeholder="What be your task?">
+        <button class="btn task-create" ng-click="taskCtrl.createTask()" type="submit">Chalk it up</button>
       </form>
     <ul class="list-group">
-      <li class="list-group-item">
-        <input type="checkbox" name="complete">
-        Spice the mainbrace
-        <input type="checkbox" name="delete">
+
+      <li class="list-group-item"
+        ng-repeat="task in taskCtrl.tasks">
+        <span class="task-name" ng-click="editing = !editing">{{task.name}}</span>
+        <button class="btn show-edit-button" type="submit" ng-hide="editing" ng-click="editing = !editing">Open task</button>
+        <button class="btn hide-edit-button" type="submit" ng-show="editing" ng-click="editing = !editing">Close task</button>
+          <form class="task-options" ng-show="editing">
+            <input type="text" ng-model="taskCtrl.taskToEdit" placeholder="Change your task...?" ng-required/>
+            <br/>
+            <button class="btn" type="submit">Mark complete</button>
+            <button class="btn update-button" type="submit">Update</button>
+            <button class="btn" type="submit">Delete</button>
+          </form>
       </li>
-      <li class="list-group-item">
-        <input type="checkbox" name="complete">
-        Search for treasure
-        <input type="checkbox" name="delete">
-      </li>
-      <p> 2 tasks incomplete </p>
+        <p id='count'> {{taskCtrl.tasks.length}} tasks incomplete </p>
       <div>
         <button class="btn">All</button>
         <button class="btn">Active</button>

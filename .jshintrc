@@ -91,3 +91,12 @@
     // Custom Globals
     "globals"       : { "toDoList": true, "angular": true }        // additional predefined global variables
 }
+
+{
+  "predef": [
+    "protractor",
+    "browser",
+    "by",
+    "element"
+  ]
+}
