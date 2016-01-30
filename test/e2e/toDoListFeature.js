@@ -1,7 +1,7 @@
 describe('To Do List', function(){
 
   var taskEntry = element(by.model('taskCtrl.newTask'));
-  var taskEdit = element(by.model('taskCtrl.task'));
+  var taskEdit = element(by.model('taskCtrl.newName'));
 
   beforeEach(function(){
     browser.get('http://localhost:8080');
@@ -22,6 +22,7 @@ describe('To Do List', function(){
     beforeEach(function(){
       taskEntry.sendKeys('Scrub the deck');
       element(by.className('task-create')).click();
+      tasks = element.all(by.repeater('task in taskCtrl.tasks'));
     });
 
     it('hides task options by default', function(){

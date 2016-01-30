@@ -31,13 +31,14 @@ describe('ToDoListController', function(){
     beforeEach(function(){
       ctrl.newTask = "Scrub the deck";
       ctrl.createTask();
+      task1 = ctrl.tasks[0]
     });
 
     describe('editing a task', function(){
       it('updates the task in the tasks array', function(){
-        ctrl.taskToEdit = "Splice the mainbrace"
-        ctrl.editTask();
-        expect(ctrl.tasks[0]).toEqual({id:0, name:"Splice the mainbrace", complete:false});
+        updated = {id: 0, name: "Splice the mainbrace", complete: false}
+        ctrl.editTask(task1, 'Splice the mainbrace');
+        expect(ctrl.tasks[0]).toEqual(updated);
       });
     });
   });
