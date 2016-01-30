@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   express: {
      options: {
          port:8080,
-         script: 'server.js'
+         script: 'app/server.js'
        },
      run: {
        }
@@ -14,7 +14,8 @@ module.exports = function(grunt) {
        configFile: 'test/karma.conf.js'
      },
      run: {
-     }
+     },
+     plugins: ["karma-spec-reporter"],
    },
    protractor: {
      options: {
@@ -38,7 +39,7 @@ module.exports = function(grunt) {
  grunt.loadNpmTasks('grunt-protractor-runner');
  grunt.loadNpmTasks('grunt-protractor-webdriver');
 
- grunt.registerTask('test', ['karma', 'e2e']);
+ grunt.registerTask('test', ['unit', 'e2e']);
  grunt.registerTask('unit', ['karma']);
  grunt.registerTask('e2e', ['express', 'protractor_webdriver', 'protractor']);
 };

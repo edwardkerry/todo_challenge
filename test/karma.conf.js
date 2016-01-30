@@ -4,14 +4,15 @@
 module.exports = function(config) {
   config.set({
 
+
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
 
+    frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -38,8 +39,15 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['spec'],
 
+      specReporter: {
+        maxLogLines: 5,         // limit number of lines logged per test
+        suppressErrorSummary: true,  // do not print error summary
+        suppressFailed: false,  // do not print information about failed tests
+        suppressPassed: false,  // do not print information about passed tests
+        suppressSkipped: true  // do not print information about skipped tests
+      },
 
     // web server port
     port: 9876,
@@ -60,7 +68,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

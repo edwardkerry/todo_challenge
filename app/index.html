@@ -1,12 +1,38 @@
 <!doctype HTML>
-<html lang="en">
+<html lang="en" ng-app="ToDoList">
   <head>
     <title> ToDo</title>
     <link rel="shortcut icon" href="images/pirate.ico" type="image/x-icon">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="js/app.js"></script>
   </head>
   <body>
     <h1>To do</h1>
-    
+      <form class="form-horizontal">
+        <input type="text" placeholder="What be your task?">
+        <button class="btn" type="submit">Chalk it up</button>
+      </form>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <input type="checkbox" name="complete">
+        Spice the mainbrace
+        <input type="checkbox" name="delete">
+      </li>
+      <li class="list-group-item">
+        <input type="checkbox" name="complete">
+        Search for treasure
+        <input type="checkbox" name="delete">
+      </li>
+      <p> 2 tasks incomplete </p>
+      <div>
+        <button class="btn">All</button>
+        <button class="btn">Active</button>
+        <button class="btn">Complete</button>
+        <button class="btn">Clear all</button>
+      </div>
+    </ul>
   </body>
-
 </html>
