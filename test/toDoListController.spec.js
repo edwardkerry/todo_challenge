@@ -23,7 +23,7 @@ describe('ToDoListController', function(){
     it('pushes new task into the tasks array', function(){
       ctrl.newTask = "Scrub the deck";
       ctrl.createTask();
-      expect(ctrl.tasks[0]).toEqual({name:"Scrub the deck", complete:false});
+      expect(ctrl.tasks[0]).toEqual({name:"Scrub the deck", complete:false, show:true});
     });
   });
 
@@ -49,6 +49,14 @@ describe('ToDoListController', function(){
       it('removes the task from the tasks array', function(){
         ctrl.deleteTask(task1);
         expect(ctrl.tasks[0]).toBe(undefined);
+      });
+    });
+
+    describe('deleting shown tasks', function(){
+      it('removes shown tasks from the tasks array', function(){
+        task2.show = false ;
+        ctrl.deleteShown();
+        expect(ctrl.tasks[0]).toEqual(task2);
       });
     });
 

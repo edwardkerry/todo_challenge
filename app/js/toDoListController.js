@@ -50,6 +50,15 @@ toDoList.controller('ToDoListController', [function(){
     }
   };
 
+  self.deleteShown = function(){
+    var i = self.tasks.length;
+    while(i--) {
+      if(self.tasks[i].show === true){
+        self.tasks.splice(i,1);
+      }
+    }
+  };
+
   self.onShow = function(){
     var count = 0;
     for(var i = 0; i < self.tasks.length; i++) {

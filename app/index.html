@@ -34,21 +34,19 @@
             <button class="btn delete-button" ng-click="taskCtrl.deleteTask(task)" type="submit">Delete</button>
           </form>
       </li>
-        <p id='count'> Tasks on show:
-
+      <p id='count'> Tasks on show:
         <ng-pluralize count="taskCtrl.onShow()" when="{
                          '0': 'no tasks',
                          '1': '1 task',
                          '2': '2 tasks',
                          'other': '{} tasks'}">
         </ng-pluralize>
-        </p>
-
+      </p>
       <div>
         <button class="btn filter-all" ng-click="taskCtrl.filterAll()">All</button>
         <button class="btn filter-incomplete" ng-click="taskCtrl.filterIncomplete()">Active</button>
         <button class="btn filter-complete" ng-click="taskCtrl.filterComplete()">Complete</button>
-        <button class="btn delete-all">Clear all</button>
+        <button class="btn delete-all" ng-click="taskCtrl.deleteShown()">Clear current list</button>
       </div>
     </ul>
   </body>

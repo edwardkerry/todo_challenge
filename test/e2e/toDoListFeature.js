@@ -52,39 +52,12 @@ describe('To Do List', function(){
       expect(element(by.css('body')).getText()).not.toContain('Scrub the deck');
     });
 
+
+
     it('allows a user to mark a task complete', function(){
       element(by.className('complete-box')).click();
       expect(tasks.get(0).getText()).toContain('Done!');
     });
-
-    it('notes how many tasks are currently displayed', function(){
-      expect(element(by.id('count')).getText()).toContain('1');
-    });
   });
 
-  describe('when several tasks have been added', function(){
-    beforeEach(function(){
-      taskEntry.sendKeys('Scrub the deck');
-      element(by.className('task-create')).click();
-      element(by.className('complete-box')).click();
-      taskEntry.sendKeys('Set sail!');
-      element(by.className('task-create')).click();
-    });
-
-    it('allows a user to filter by complete', function(){
-      element(by.className('filter-all')).click();
-      expect(tasks.getText()).toContain('Scrub the deck');
-    });
-
-    it('allows a user to filter by complete', function(){
-      element(by.className('filter-incomplete')).click();
-      expect(tasks.get(0).getText()).toContain('Set sail!');
-    });
-
-    it('allows a user to filter by complete', function(){
-      element(by.className('filter-complete')).click();
-      expect(tasks.get(0).getText()).toContain('Scrub the deck');
-    });
-
-  });
 });
