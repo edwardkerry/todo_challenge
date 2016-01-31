@@ -35,10 +35,17 @@ describe('ToDoListController', function(){
     });
 
     describe('editing a task', function(){
-      it('updates the task in the tasks array', function(){
-        updated = {name: "Splice the mainbrace", complete: false}
-        ctrl.editTask(task1, 'Splice the mainbrace');
-        expect(ctrl.tasks[0]).toEqual(updated);
+      it('updates the task name in the tasks array', function(){
+        ctrl.newName = "Splice the mainbrace"
+        ctrl.editTask(task1);
+        expect(task1.name).toEqual("Splice the mainbrace");
+      });
+    });
+
+    describe('deleting a task', function(){
+      it('removes the task in the tasks array', function(){
+        ctrl.deleteTask(task1);
+        expect(ctrl.tasks[0]).toBe(undefined);
       });
     });
   });

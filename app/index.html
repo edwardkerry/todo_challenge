@@ -12,9 +12,9 @@
   </head>
   <body ng-controller="ToDoListController as taskCtrl">
     <h1>To do</h1>
-      <form class="form-horizontal">
-        <input type="text" ng-model="taskCtrl.newTask" placeholder="What be your task?">
-        <button class="btn task-create" ng-click="taskCtrl.createTask()" type="submit">Chalk it up</button>
+      <form class="form-horizontal" name="task-entry" ng-submit="taskCtrl.createTask()">
+        <input type="text" ng-model="taskCtrl.newTask" placeholder="Enter your task" required>
+        <button class="btn task-create" type="submit">Add task</button>
       </form>
     <ul class="list-group">
 
@@ -26,9 +26,9 @@
           <form class="task-options" ng-show="editing">
             <input type="text" ng-model="taskCtrl.newName" placeholder="Change your task...?" ng-required/>
             <br/>
-            <button class="btn update-button" ng-click="taskCtrl.editTask(task, taskCtrl.newName)" type="submit">Update</button>
+            <button class="btn update-button" ng-click="taskCtrl.editTask(task)" type="submit">Update</button>
             <button class="btn" type="submit">Mark complete</button>
-            <button class="btn" type="submit">Delete</button>
+            <button class="btn delete-button" ng-click="taskCtrl.deleteTask(task)" type="submit">Delete</button>
           </form>
       </li>
         <p id='count'> {{taskCtrl.tasks.length}} tasks incomplete </p>

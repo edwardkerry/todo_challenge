@@ -47,6 +47,13 @@ describe('To Do List', function(){
       expect(tasks.get(0).getText()).toContain('Splice the mainbrace');
     });
 
+    it('allows a user to delete a task', function(){
+      element(by.className('task-name')).click();
+      element(by.className('delete-button')).click();
+      expect(element(by.css('body')).getText()).not.toContain('Scrub the deck');
+    });
+
+
     it('notes how many tasks are currently displayed', function(){
       expect(element(by.id('count')).getText()).toContain('1');
     });
