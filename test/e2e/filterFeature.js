@@ -3,6 +3,8 @@ describe('Filtering to do list', function(){
   var taskEntry = element(by.model('taskCtrl.newTask'));
   var taskEdit = element(by.model('task.newName'));
   var tasks = element.all(by.repeater('task in taskCtrl.tasks'));
+  var task1 = tasks.get(0);
+  var task2 = tasks.get(1);
 
   beforeEach(function(){
     browser.get('http://localhost:8080');
@@ -19,20 +21,19 @@ describe('Filtering to do list', function(){
 
     it('allows a user to filter by all', function(){
       element(by.className('filter-all')).click();
-      expect(element(by.css('body')).getText()).toContain('Scrub the deck');
-      expect(element(by.css('body')).getText()).toContain('Set sail!');
+      expect(task1.isDisplayed()).ToBeTruthy;
     });
 
     it('allows a user to filter by incomplete', function(){
       element(by.className('filter-incomplete')).click();
-      expect(element(by.css('body')).getText()).toContain('Set sail!');
-      expect(element(by.css('body')).getText()).not.toContain('Scrub the deck');
+      expect(task1.isDisplayed()).ToBeFalsy;
+      expect(task2.isDisplayed()).ToBeTruthy;
     });
 
     it('allows a user to filter by complete', function(){
       element(by.className('filter-complete')).click();
-      expect(element(by.css('body')).getText()).toContain('Scrub the deck');
-      expect(element(by.css('body')).getText()).not.toContain('Set sail!');
+        expect(task1.isDisplayed()).ToBeTruthy;
+        expect(task2.isDisplayed()).ToBeFalsy;
     });
 
     it('notes how many tasks are currently displayed', function(){
@@ -43,8 +44,7 @@ describe('Filtering to do list', function(){
       element(by.className('filter-complete')).click();
       element(by.className('delete-all')).click();
       element(by.className('filter-all')).click();
-      expect(element(by.css('body')).getText()).not.toContain('Scrub the deck');
-      expect(element(by.css('body')).getText()).toContain('Set sail!');
+      expect(task1.isDisplayed()).ToBeFalsy;
     });
 
   });
