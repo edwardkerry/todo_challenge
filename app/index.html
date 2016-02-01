@@ -35,11 +35,11 @@
           </form>
       </li>
       <p id='count'> Tasks on show:
-        <ng-pluralize count="taskCtrl.onShow()" when="{
-                         '0': 'no tasks',
-                         '1': '1 task',
-                         '2': '2 tasks',
-                         'other': '{} tasks'}">
+        <ng-pluralize count="taskCtrl.onShow()"
+                      when="{'0': 'no tasks',
+                            '1': '1 task',
+                            '2': '2 tasks',
+                            'other': '{} tasks'}">
         </ng-pluralize>
       </p>
       <div>
