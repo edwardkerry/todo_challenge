@@ -52,8 +52,6 @@ describe('To Do List', function(){
       expect(element(by.css('body')).getText()).not.toContain('Scrub the deck');
     });
 
-
-
     it('allows a user to mark a task complete', function(){
       element(by.className('complete-box')).click();
       expect(tasks.get(0).getText()).toContain('Done!');
